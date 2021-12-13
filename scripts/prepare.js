@@ -90,7 +90,9 @@ if (process.platform === "win32") {
     process.exit(0);
   }
 
+  console.log("Downloading libzmq from: ", TAR_URL);
   download(TAR_URL, FILE_NAME, function(err) {
+    console.log('download cb: %j', err);
     if (err) {
       handleError(err);
     }
