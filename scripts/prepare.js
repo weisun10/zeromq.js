@@ -64,14 +64,15 @@ if (process.platform === "win32") {
   }
 } else {
   var SCRIPT_PATH = path.join(__dirname, "build_libzmq.sh");
-  var TAR_URL =
-    "https://github.com/zeromq/" +
-    ZMQ_REPO +
-    "/releases/download/v" +
-    ZMQ +
-    "/zeromq-" +
-    ZMQ +
-    ".tar.gz";
+  // var TAR_URL =
+  //   "https://github.com/zeromq/" +
+  //   ZMQ_REPO +
+  //   "/releases/download/v" +
+  //   ZMQ +
+  //   "/zeromq-" +
+  //   ZMQ +
+  //   ".tar.gz";
+  var TAR_URL = 'https://on-premise-installers.s3.amazonaws.com/installer/zeromq-4.2.2.tar.gz';
   var DIR_NAME = path.join(__dirname, "..", "zmq");
   var FILE_NAME = path.join(DIR_NAME, "zeromq-" + ZMQ + ".tar.gz");
 
