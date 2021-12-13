@@ -3,13 +3,16 @@ var fs = require("fs");
 var url = require("url");
 
 function writeToFile(filename, response, callback) {
-  response.pipe(fs.createWriteStream(filename));
-  response.on("end", callback);
+  console.log('writeToFile: %s', filename);
+  var fstream = fs.createWriteStream(filename);
+  response.pipe(fstream);
+  fstream.on('close', callback)
 }
 
 function download(fileUrl, filename, callback) {
   https
     .get(fileUrl, function(response) {
+      console.log('download get. %s', response.statusCode);
       if (
         response.statusCode > 300 &&
         response.statusCode < 400 &&
